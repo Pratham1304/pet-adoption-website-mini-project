@@ -1,0 +1,49 @@
+<?php
+    session_start();
+  
+    if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true)
+    {
+        header("location: login.php");
+        exit;
+    }
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="logo"><a href="users.php"><img src="../img/logo.png" alt="logo"></a></div>
+        <div class="a">
+        <h3>Hello <?php echo $_SESSION['admin']; ?>!</h3>
+        <button onclick="document.location='logout.php'">Logout</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav class="vertical-navbar">
+            <ul>
+                <h3>ADMIN PANEL</h3>
+                <li class="dropdown"><a href="users.php" class="dropbtn">Users</a></li>
+                <li class="dropdown"><a href="pets.php" class="dropbtn">Pets</a>
+                    <div class="dropdown-content">
+                        <a href="pets.php">All Pets</a>
+                        <a href="available pets.php">Available Pets</a>
+                        <a href="adopted pets.php">Adopted Pets</a>
+                    </div>
+                </li>
+                <li class="dropdown"><a href="adoption form.php" class="dropbtn">Adoption Form</a></li>
+            </ul>
+            <br><br><br><br><br>
+        </nav>
+</body>
+
+</html>
